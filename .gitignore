@@ -1,0 +1,30 @@
+# Composer dependencies
+/vendor/
+composer.lock
+
+# Ignore .env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Ignore temporary files
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+
+# Log files
+*.log
+*.cache
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Ignore cache and logs
+/.phpunit.result.cache
+/cache/*
+/logs/*
