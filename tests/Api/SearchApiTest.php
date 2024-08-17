@@ -17,7 +17,8 @@ class SearchApiTest extends TestCase
         $httpClient->method('request')
                    ->willReturn($willReturn);
 
-        $searchApi = new SearchApi($httpClient);
+        $searchApi = new SearchApi($httpClient);  // Inject the mock
+
         $searchData = $searchApi->getDataBySearch('Breaking Bad');
 
         $this->assertEquals('Breaking Bad', $searchData[0]['Title']);

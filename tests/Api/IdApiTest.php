@@ -1,10 +1,10 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
-use OmdbPhpSdk\Api\IMDbIDApi;
+use OmdbPhpSdk\Api\IdApi;
 use OmdbPhpSdk\Http\HttpClient;
 
-class IMDbIDApiTest extends TestCase
+class IdApiTest extends TestCase
 {
     public function testGetDataById()
     {
@@ -12,7 +12,8 @@ class IMDbIDApiTest extends TestCase
         $httpClient->method('request')
                    ->willReturn(['Title' => 'Ghostbusters', 'Year' => '1984', 'Rated' => 'PG']);
 
-        $idApi = new IMDbIDApi($httpClient);
+        $idApi = new IdApi($httpClient); // Inject the mock
+
         $idData = $idApi->getDataById('tt0087332');
 
         $this->assertEquals('Ghostbusters', $idData['Title']);

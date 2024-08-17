@@ -15,11 +15,9 @@ Add API key to `OMDB_API_KEY` environment variable in `.env`
 ## Usage
 Get Data by IMDb ID
 ```php
-use OmdbPhpSdk\Http\HttpClient;
-use OmdbPhpSdk\Api\IMDbIDApi;
+use OmdbPhpSdk\Api\IdApi;
 
-$client = new HttpClient();
-$idApi = new IMDbIDApi($client);
+$idApi = new IdApi();
 $idData = $idApi->getDataById('tt0087332');
 
 print_r($idData);
@@ -27,23 +25,19 @@ print_r($idData);
 
 Get Data by Title
 ```php
-use OmdbPhpSdk\Http\HttpClient;
 use OmdbPhpSdk\Api\TitleApi;
 
-$client = new HttpClient();
-$titleApi = new TitleApi($client);
-$titleData = $titleApi->getDataByTitle('Kids');
+$titleApi = new TitleApi();
+$titleData = $titleApi->getDataByTitle('Kids', ['y' => '1995', 'type' => 'movie']);
 
 print_r($titleData);
 ```
 
 Get Data with Search
 ```php
-use OmdbPhpSdk\Http\HttpClient;
 use OmdbPhpSdk\Api\SearchApi;
 
-$client = new HttpClient();
-$searchApi = new SearchApi($client);
+$searchApi = new SearchApi();
 $searchData = $searchApi->getDataBySearch('Breaking Bad');
 
 print_r($searchData);

@@ -2,17 +2,10 @@
 
 namespace OmdbPhpSdk\Api;
 
-use OmdbPhpSdk\Http\HttpClient;
+use OmdbPhpSdk\Api\BaseApi;
 
-class SearchApi
+class SearchApi extends BaseApi
 {
-    protected $httpClient;
-
-    public function __construct(HttpClient $httpClient)
-    {
-        $this->httpClient = $httpClient;
-    }
-
     public function getDataBySearch($search, $params = [])
     {
         $params = array_merge(['s' => urlencode($search)], $params);

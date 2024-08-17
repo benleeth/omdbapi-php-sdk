@@ -12,8 +12,9 @@ class TitleApiTest extends TestCase
         $httpClient->method('request')
                    ->willReturn(['Title' => 'Kids', 'Year' => '1995', 'Rated' => 'NC-17']);
 
-        $titleApi = new TitleApi($httpClient);
-        $titleData = $titleApi->getDataByTitle('Kids');
+        $titleApi = new TitleApi($httpClient); // Inject the mock
+
+        $titleData = $titleApi->getDataByTitle('Kids', ['y' => '1995', 'type' => 'movie']);
 
         $this->assertEquals('Kids', $titleData['Title']);
         $this->assertEquals('1995', $titleData['Year']);

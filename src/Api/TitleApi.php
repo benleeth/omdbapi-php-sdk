@@ -2,17 +2,10 @@
 
 namespace OmdbPhpSdk\Api;
 
-use OmdbPhpSdk\Http\HttpClient;
+use OmdbPhpSdk\Api\BaseApi;
 
-class TitleApi
+class TitleApi extends BaseApi
 {
-    protected $httpClient;
-
-    public function __construct(HttpClient $httpClient)
-    {
-        $this->httpClient = $httpClient;
-    }
-
     public function getDataByTitle($title, $params = [])
     {
         $params = array_merge(['t' => urlencode($title)], $params);

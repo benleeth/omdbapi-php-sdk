@@ -2,17 +2,10 @@
 
 namespace OmdbPhpSdk\Api;
 
-use OmdbPhpSdk\Http\HttpClient;
+use OmdbPhpSdk\Api\BaseApi;
 
-class IMDbIDApi
+class IdApi extends BaseApi
 {
-    protected $httpClient;
-
-    public function __construct(HttpClient $httpClient)
-    {
-        $this->httpClient = $httpClient;
-    }
-
     public function getDataById($id, $params = [])
     {
         $params = array_merge(['i' => $id], $params);
