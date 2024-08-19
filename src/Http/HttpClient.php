@@ -29,15 +29,13 @@ class HttpClient
     public function request($params = [])
     {
         $key = [
-            'query' => [
-                'apikey' => $this->apiKey
-            ]
+            'apikey' => $this->apiKey
         ];
 
-        $params = array_merge($key, ['query' => $params]);
+        $params = array_merge($key, $params);
 
         try {
-            $response = $this->client->request('GET', '/', $params);
+            $response = $this->client->request('GET', '/', ['query' => $params]);
 
             return json_decode($response->getBody()->getContents(), true);
         } catch (RequestException $e) {
