@@ -47,7 +47,7 @@ class HttpClient
 
     private function load_environment_variables()
     {
-        $dotenv = Dotenv::createImmutable(__DIR__);
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../../');
         $dotenv->load();
     }
 }
